@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math X Tales - Credits</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #6B73FF 0%, #000DFF 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            animation: slideUp 0.5s ease-out;
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: shimmer 3s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+        
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateX(-3px);
+        }
+        
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border-radius: 20px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .app-icon img {
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            object-fit: cover;
+        }
+        
+        h1 {
+            font-size: 32px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .subtitle {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.9);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .content {
+            padding: 40px 30px;
+        }
+        
+        .section {
+            margin-bottom: 50px;
+        }
+        
+        .section:last-child {
+            margin-bottom: 0;
+        }
+        
+        h2 {
+            font-size: 24px;
+            color: #667eea;
+            margin-bottom: 25px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .section-icon {
+            font-size: 28px;
+        }
+        
+        .credit-category {
+            background: #f8f9fa;
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+        
+        .category-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e9ecef;
+        }
+        
+        .credit-item {
+            padding: 15px;
+            margin-bottom: 15px;
+            background: white;
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+        
+        .credit-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .credit-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .credit-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .credit-author {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+        
+        .credit-link {
+            font-size: 12px;
+            color: #667eea;
+            text-decoration: none;
+            word-break: break-all;
+        }
+        
+        .credit-link:hover {
+            text-decoration: underline;
+        }
+        
+        .license-badge {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            margin-top: 8px;
+        }
+        
+        .ai-credit {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .ai-credit-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .ai-credit-description {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .footer {
+            padding: 30px;
+            text-align: center;
+            background: #f8f9fa;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        .footer-text {
+            font-size: 13px;
+            color: #999;
+            line-height: 1.6;
+        }
+        
+        /* Math decorative elements */
+        .math-decoration {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.1);
+            font-size: 24px;
+            font-weight: bold;
+            animation: float 6s ease-in-out infinite;
+            z-index: 0;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .math-1 { top: 20px; right: 20px; animation-delay: 0s; }
+        .math-2 { bottom: 20px; left: 40px; animation-delay: 2s; }
+        
+        @media (max-width: 600px) {
+            .content {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 28px;
+            }
+            
+            h2 {
+                font-size: 20px;
+            }
+            
+            .credit-category {
+                padding: 20px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="index.html" class="back-button">← Back</a>
+            
+            <!-- Math decorative elements -->
+            <span class="math-decoration math-1">π</span>
+            <span class="math-decoration math-2">∑</span>
+            
+            <div class="app-icon">
+                <img src="Logo_2.png" alt="Math X Tales Logo">
+            </div>
+            <h1>Math X Tales</h1>
+            <p class="subtitle">Credits & Acknowledgments</p>
+        </div>
+        
+        <div class="content">
+            <!-- Images Section -->
+            <div class="section">
+                <h2>
+                    <span class="section-icon">🎨</span>
+                    Images & Graphics
+                </h2>
+                
+                <div class="credit-category">
+                    <div class="category-title">AI-Generated Artwork</div>
+                    
+                    <div class="ai-credit">
+                        <div class="ai-credit-title">Google Gemini</div>
+                        <div class="ai-credit-description">
+                            Various game images and illustrations were generated using Google Gemini AI, 
+                            bringing mathematical concepts to life through creative visual storytelling.
+                        </div>
+                    </div>
+                    
+                    <div class="ai-credit">
+                        <div class="ai-credit-title">JuggernautXL Model</div>
+                        <div class="ai-credit-description">
+                            Additional artwork and character designs created using the JuggernautXL 
+                            Stable Diffusion model, providing high-quality educational imagery for the game.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sound Section -->
+            <div class="section">
+                <h2>
+                    <span class="section-icon">🎵</span>
+                    Sound & Music
+                </h2>
+                
+                <div class="credit-category">
+                    <div class="category-title">Music & Background Sounds</div>
+                    
+                    <div class="credit-item">
+                        <div class="credit-name">Bit Forest Intro Music</div>
+                        <div class="credit-author">by Bertsz</div>
+                        <a href="https://freesound.org/s/545457/" class="credit-link" target="_blank">
+                            https://freesound.org/s/545457/
+                        </a>
+                        <span class="license-badge">Creative Commons 0</span>
+                    </div>
+                    
+                    <div class="credit-item">
+                        <div class="credit-name">Game Sound Intro To Game</div>
+                        <div class="credit-author">by Bertrof</div>
+                        <a href="https://freesound.org/s/131659/" class="credit-link" target="_blank">
+                            https://freesound.org/s/131659/
+                        </a>
+                        <span class="license-badge">Attribution 3.0</span>
+                    </div>
+                    
+                    <div class="credit-item">
+                        <div class="credit-name">Synth/Bass Short or Intro</div>
+                        <div class="credit-author">by griffon_designs</div>
+                        <a href="https://freesound.org/s/321045/" class="credit-link" target="_blank">
+                            https://freesound.org/s/321045/
+                        </a>
+                        <span class="license-badge">Creative Commons 0</span>
+                    </div>
+                    
+                    <div class="credit-item">
+                        <div class="credit-name">Gentle Ocean Waves Birdsong and Gull</div>
+                        <div class="credit-author">by jackmichaelking</div>
+                        <a href="https://freesound.org/s/518637/" class="credit-link" target="_blank">
+                            https://freesound.org/s/518637/
+                        </a>
+                        <span class="license-badge">Creative Commons 0</span>
+                    </div>
+                </div>
+                
+                <div class="credit-category">
+                    <div class="category-title">Sound Effects</div>
+                    
+                    <div class="credit-item">
+                        <div class="credit-name">Achievement Happy Beeps Jingle</div>
+                        <div class="credit-author">by CogFireStudios</div>
+                        <a href="https://freesound.org/s/619838/" class="credit-link" target="_blank">
+                            https://freesound.org/s/619838/
+                        </a>
+                        <span class="license-badge">Creative Commons 0</span>
+                    </div>
+                    
+                    <div class="credit-item">
+                        <div class="credit-name">Mouse Click</div>
+                        <div class="credit-author">by abstraktgeneriert</div>
+                        <a href="https://freesound.org/s/213004/" class="credit-link" target="_blank">
+                            https://freesound.org/s/213004/
+                        </a>
+                        <span class="license-badge">Creative Commons 0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p class="footer-text">
+                Math X Tales uses various creative assets under their respective licenses.<br>
+                We are grateful to all creators who make their work available for use.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
