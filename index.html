@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math X Tales - App Information</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #6B73FF 0%, #000DFF 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 500px;
+            width: 100%;
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            animation: slideUp 0.5s ease-out;
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 50px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: shimmer 3s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .app-icon {
+            width: 100px;
+            height: 100px;
+            background: white;
+            border-radius: 24px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .app-icon img {
+            width: 100%;
+            height: 100%;
+            border-radius: 24px;
+            object-fit: cover;
+        }
+        
+        h1 {
+            font-size: 32px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .tagline {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.9);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .navigation {
+            padding: 40px 30px;
+        }
+        
+        .nav-intro {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+        
+        .nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .nav-link {
+            display: flex;
+            align-items: center;
+            padding: 20px 25px;
+            background: #f8f9fa;
+            border-radius: 16px;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .nav-link:hover::before {
+            left: 100%;
+        }
+        
+        .nav-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.2);
+            border-color: #667eea;
+            background: white;
+        }
+        
+        .nav-icon {
+            font-size: 28px;
+            margin-right: 20px;
+            width: 40px;
+            text-align: center;
+        }
+        
+        .nav-content {
+            flex: 1;
+        }
+        
+        .nav-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .nav-description {
+            font-size: 13px;
+            color: #888;
+            line-height: 1.4;
+        }
+        
+        .nav-arrow {
+            font-size: 20px;
+            color: #ccc;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover .nav-arrow {
+            color: #667eea;
+            transform: translateX(5px);
+        }
+        
+        .footer {
+            padding: 30px;
+            text-align: center;
+            background: #f8f9fa;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        .footer-text {
+            font-size: 13px;
+            color: #999;
+            line-height: 1.6;
+        }
+        
+        .copyright {
+            margin-top: 10px;
+            font-size: 12px;
+            color: #bbb;
+        }
+        
+        /* Math decorative elements */
+        .math-decoration {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.1);
+            font-size: 24px;
+            font-weight: bold;
+            animation: float 6s ease-in-out infinite;
+            z-index: 0;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .math-1 { top: 20px; left: 20px; animation-delay: 0s; }
+        .math-2 { top: 30px; right: 30px; animation-delay: 1s; }
+        .math-3 { bottom: 20px; left: 40px; animation-delay: 2s; }
+        .math-4 { bottom: 30px; right: 20px; animation-delay: 3s; }
+        
+        @media (max-width: 600px) {
+            .header {
+                padding: 40px 20px;
+            }
+            
+            h1 {
+                font-size: 28px;
+            }
+            
+            .navigation {
+                padding: 30px 20px;
+            }
+            
+            .nav-link {
+                padding: 18px 20px;
+            }
+            
+            .nav-icon {
+                font-size: 24px;
+                margin-right: 15px;
+            }
+            
+            .nav-title {
+                font-size: 16px;
+            }
+        }
+        
+        /* Loading animation for future use */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <!-- Math decorative elements -->
+            <span class="math-decoration math-1">π</span>
+            <span class="math-decoration math-2">∑</span>
+            <span class="math-decoration math-3">√</span>
+            <span class="math-decoration math-4">∞</span>
+            
+            <div class="app-icon">
+                <img src="images/Logo_2.png" alt="Math X Tales Logo">
+            </div>
+            <h1>Math X Tales</h1>
+            <p class="tagline">Where Math Meets Adventure</p>
+        </div>
+        
+        <div class="navigation">
+            <p class="nav-intro">
+                Welcome! Find information about Math X Tales below.
+            </p>
+            
+            <div class="nav-links">
+                <a href="credits.html" class="nav-link">
+                    <span class="nav-icon">🎨</span>
+                    <div class="nav-content">
+                        <div class="nav-title">Credits</div>
+                        <div class="nav-description">
+                            Sound effects, images, music, and all creative assets used in the app
+                        </div>
+                    </div>
+                    <span class="nav-arrow">→</span>
+                </a>
+                
+                <a href="thanks.html" class="nav-link">
+                    <span class="nav-icon">💝</span>
+                    <div class="nav-content">
+                        <div class="nav-title">Thanks</div>
+                        <div class="nav-description">
+                            Special thanks to everyone who helped bring Math X Tales to life
+                        </div>
+                    </div>
+                    <span class="nav-arrow">→</span>
+                </a>
+                
+                <a href="licence.html" class="nav-link">
+                    <span class="nav-icon">📜</span>
+                    <div class="nav-content">
+                        <div class="nav-title">Licence</div>
+                        <div class="nav-description">
+                            Open source licences and legal information for third-party libraries
+                        </div>
+                    </div>
+                    <span class="nav-arrow">→</span>
+                </a>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p class="footer-text">
+                Math X Tales is an educational adventure game that makes learning math fun and engaging for everyone.
+            </p>
+            <p class="copyright">
+                © 2025 Math X Tales. All rights reserved.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
