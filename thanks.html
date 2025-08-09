@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math X Tales - Special Thanks</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #6B73FF 0%, #000DFF 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            animation: slideUp 0.5s ease-out;
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: shimmer 3s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+        
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateX(-3px);
+        }
+        
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border-radius: 20px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .app-icon img {
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            object-fit: cover;
+        }
+        
+        h1 {
+            font-size: 32px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .subtitle {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.9);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .content {
+            padding: 40px 30px;
+        }
+        
+        .intro {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 25px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 16px;
+        }
+        
+        .intro-text {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.8;
+            font-style: italic;
+        }
+        
+        .thanks-section {
+            margin-bottom: 40px;
+        }
+        
+        h2 {
+            font-size: 24px;
+            color: #667eea;
+            margin-bottom: 30px;
+            font-weight: 600;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .heart-icon {
+            font-size: 28px;
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .person-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 2px solid #f0f0f0;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .person-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .person-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.2);
+        }
+        
+        .person-name {
+            font-size: 24px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .star-icon {
+            color: #ffd700;
+            font-size: 24px;
+        }
+        
+        .person-message {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .person-contribution {
+            font-size: 14px;
+            color: #888;
+            font-style: italic;
+            padding-top: 15px;
+            border-top: 1px solid #f0f0f0;
+        }
+        
+        .special-note {
+            background: #fff3cd;
+            border-radius: 12px;
+            padding: 15px;
+            margin-top: 10px;
+            font-size: 13px;
+            color: #856404;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .more-to-come {
+            text-align: center;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 16px;
+            margin-top: 40px;
+        }
+        
+        .more-to-come-text {
+            font-size: 14px;
+            color: #999;
+            font-style: italic;
+        }
+        
+        .footer {
+            padding: 30px;
+            text-align: center;
+            background: #f8f9fa;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        .footer-text {
+            font-size: 13px;
+            color: #999;
+            line-height: 1.6;
+        }
+        
+        .footer-quote {
+            font-size: 16px;
+            color: #667eea;
+            font-style: italic;
+            margin-top: 15px;
+            font-weight: 500;
+        }
+        
+        /* Math decorative elements */
+        .math-decoration {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.1);
+            font-size: 24px;
+            font-weight: bold;
+            animation: float 6s ease-in-out infinite;
+            z-index: 0;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .math-1 { top: 20px; right: 20px; animation-delay: 0s; }
+        .math-2 { bottom: 20px; left: 40px; animation-delay: 2s; }
+        
+        @media (max-width: 600px) {
+            .content {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 28px;
+            }
+            
+            .person-name {
+                font-size: 20px;
+            }
+            
+            .person-card {
+                padding: 25px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="index.html" class="back-button">← Back</a>
+            
+            <!-- Math decorative elements -->
+            <span class="math-decoration math-1">❤️</span>
+            <span class="math-decoration math-2">✨</span>
+            
+            <div class="app-icon">
+                <img src="images/Logo_2.png" alt="Math X Tales Logo">
+            </div>
+            <h1>Math X Tales</h1>
+            <p class="subtitle">Special Thanks</p>
+        </div>
+        
+        <div class="content">
+            <div class="intro">
+                <p class="intro-text">
+                    Math X Tales is a journey blessed by divine grace, guided by wisdom, and supported by love. 
+                    This project exists because of the blessings from above and the incredible people who believed in this dream.
+                </p>
+            </div>
+            
+            <!-- Divine Blessings Section -->
+            <div class="thanks-section">
+                <h2>
+                    <span class="heart-icon">🙏</span>
+                    Divine Blessings & Gratitude
+                </h2>
+                
+                <div class="person-card" style="background: linear-gradient(135deg, #fff9e6 0%, #ffedcc 100%); border-color: #f4d03f;">
+                    <div class="person-name">
+                        <span class="star-icon">🕉️</span>
+                        Lord Ganesh
+                    </div>
+                    <div class="person-message">
+                        First and foremost, we bow to Lord Ganesh, the remover of obstacles and the patron of arts and sciences. 
+                        Your divine blessings have cleared the path for Math X Tales, removing every obstacle and 
+                        opening doors we never knew existed. This project began with your name and thrives under your grace.
+                    </div>
+                    <div class="person-contribution">
+                        For removing all obstacles and blessing this educational journey with success.
+                    </div>
+                </div>
+                
+                <div class="person-card" style="background: linear-gradient(135deg, #fff0f5 0%, #ffe4e1 100%); border-color: #ff69b4;">
+                    <div class="person-name">
+                        <span class="star-icon">🏹</span>
+                        Lord Ram and Family
+                    </div>
+                    <div class="person-message">
+                        To Lord Ram, Sita Mata, Lakshman, and Bharat - the embodiment of righteousness, devotion, and duty. 
+                        Your ideals of dharma guide every decision in creating Math X Tales. May this work reflect even 
+                        a fraction of your dedication to truth and service to others.
+                    </div>
+                    <div class="person-contribution">
+                        For inspiring righteousness and the courage to pursue noble goals.
+                    </div>
+                </div>
+                
+                <div class="person-card" style="background: linear-gradient(135deg, #fff5ee 0%, #ffd4b3 100%); border-color: #ff8c00;">
+                    <div class="person-name">
+                        <span class="star-icon">🚩</span>
+                        Lord Hanuman
+                    </div>
+                    <div class="person-message">
+                        To Lord Hanuman, the epitome of strength, courage, and devotion. Your boundless energy and 
+                        unwavering dedication inspire us to overcome every challenge. When the path seemed impossible, 
+                        remembering your leap across the ocean gave us the strength to take our own leaps of faith.
+                    </div>
+                    <div class="person-contribution">
+                        For blessing us with strength, courage, and unwavering determination.
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Family & Guru Section -->
+            <div class="thanks-section">
+                <h2>
+                    <span class="heart-icon">❤️</span>
+                    Family & Guru
+                </h2>
+                
+                <div class="person-card" style="background: linear-gradient(135deg, #f0f8ff 0%, #e6f3ff 100%); border-color: #4169e1;">
+                    <div class="person-name">
+                        <span class="star-icon">🏠</span>
+                        My Parents
+                    </div>
+                    <div class="person-message">
+                        To my beloved parents, who planted the seeds of curiosity and nurtured them with endless love and sacrifice. 
+                        Every line of code, every creative decision, and every late night working on Math X Tales is a small tribute 
+                        to your immeasurable contributions to my life. Your belief in education and your support of my dreams 
+                        made everything possible. This achievement is as much yours as it is mine.
+                    </div>
+                    <div class="person-contribution">
+                        For a lifetime of love, sacrifice, and unconditional support that made all dreams possible.
+                    </div>
+                </div>
+                
+                <div class="person-card" style="background: linear-gradient(135deg, #faf0e6 0%, #f5e6d3 100%); border-color: #d4a574;">
+                    <div class="person-name">
+                        <span class="star-icon">🪷</span>
+                        My Guru
+                    </div>
+                    <div class="person-message">
+                        To my revered Guru, whose wisdom transcends textbooks and whose teachings go beyond mere knowledge. 
+                        You showed me that true education is not just about learning, but about transforming lives. 
+                        Math X Tales carries forward your vision of making learning a joyful journey. Every child who 
+                        smiles while learning through this app is a continuation of your legacy.
+                    </div>
+                    <div class="person-contribution">
+                        For illuminating the path of knowledge and showing that teaching is the highest form of service.
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Supporters Section -->
+            <div class="thanks-section">
+                <h2>
+                    <span class="heart-icon">💝</span>
+                    Our Amazing Supporters
+                </h2>
+                
+                <!-- Puro -->
+                <div class="person-card">
+                    <div class="person-name">
+                        <span class="star-icon">⭐</span>
+                        Puro
+                    </div>
+                    <div class="person-message">
+                        Words cannot express how grateful I am for your unwavering support throughout this journey. 
+                        Your wisdom and advice have been the guiding light that helped shape Math X Tales into what it is today. 
+                        Every challenge seemed smaller with your encouragement, and every success felt bigger because you were there to celebrate it.
+                        Thank you for believing in this dream and helping make it a reality.
+                    </div>
+                    <div class="person-contribution">
+                        For constant support, invaluable advice, and endless motivation that kept this project moving forward.
+                    </div>
+                </div>
+                
+                <!-- Rahi -->
+                <div class="person-card">
+                    <div class="person-name">
+                        <span class="star-icon">⭐</span>
+                        Rahi
+                    </div>
+                    <div class="person-message">
+                        Your enthusiasm and dedication to testing Math X Tales has been absolutely incredible. 
+                        Every bug you found, every suggestion you made, and every word of encouragement pushed me to make this app better. 
+                        Your patience during countless testing sessions and your genuine excitement about each new feature 
+                        gave me the motivation to keep improving. This app is so much better because of your contributions.
+                    </div>
+                    <div class="person-contribution">
+                        For tireless testing, continuous support, and the motivation that turned challenges into achievements.
+                    </div>
+                </div>
+                
+                <!-- Add more people here in the future -->
+                
+            </div>
+            
+            <div class="more-to-come">
+                <p class="more-to-come-text">
+                    This list will grow as Math X Tales continues its journey. 
+                    Every person who contributes to making education more fun deserves recognition.
+                </p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p class="footer-text">
+                To everyone who has supported Math X Tales in ways big and small,<br>
+                your contributions have made all the difference.
+            </p>
+            <p class="footer-quote">
+                "Great things are never done by one person. They're done by a team of people."
+            </p>
+        </div>
+    </div>
+</body>
+</html>
