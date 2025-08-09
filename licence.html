@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math X Tales - License Agreement</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #6B73FF 0%, #000DFF 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            animation: slideUp 0.5s ease-out;
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: shimmer 3s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+        
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateX(-3px);
+        }
+        
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border-radius: 20px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .app-icon img {
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            object-fit: cover;
+        }
+        
+        h1 {
+            font-size: 32px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .subtitle {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.9);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .content {
+            padding: 40px 30px;
+        }
+        
+        .last-updated {
+            text-align: center;
+            color: #888;
+            font-size: 13px;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        h2 {
+            font-size: 22px;
+            color: #667eea;
+            margin-bottom: 20px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .section-icon {
+            font-size: 24px;
+        }
+        
+        .license-section {
+            background: #f8f9fa;
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+        
+        .license-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .license-content {
+            font-size: 14px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .license-content p {
+            margin-bottom: 15px;
+        }
+        
+        .license-content ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .license-content li {
+            margin-bottom: 8px;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        
+        .highlight-box strong {
+            color: #856404;
+        }
+        
+        .terms-list {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+        
+        .terms-list h3 {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+        
+        .apple-section {
+            background: linear-gradient(135deg, #f0f8ff 0%, #e6f3ff 100%);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+        
+        .google-section {
+            background: linear-gradient(135deg, #f5f5f5 0%, #eeeeee 100%);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .contact-info {
+            background: white;
+            border: 2px solid #667eea;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 30px;
+            text-align: center;
+        }
+        
+        .contact-info h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .contact-info p {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .footer {
+            padding: 30px;
+            text-align: center;
+            background: #f8f9fa;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        .footer-text {
+            font-size: 13px;
+            color: #999;
+            line-height: 1.6;
+        }
+        
+        /* Math decorative elements */
+        .math-decoration {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.1);
+            font-size: 24px;
+            font-weight: bold;
+            animation: float 6s ease-in-out infinite;
+            z-index: 0;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .math-1 { top: 20px; right: 20px; animation-delay: 0s; }
+        .math-2 { bottom: 20px; left: 40px; animation-delay: 2s; }
+        
+        @media (max-width: 600px) {
+            .content {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 28px;
+            }
+            
+            h2 {
+                font-size: 18px;
+            }
+            
+            .license-section {
+                padding: 20px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="index.html" class="back-button">← Back</a>
+            
+            <!-- Math decorative elements -->
+            <span class="math-decoration math-1">§</span>
+            <span class="math-decoration math-2">©</span>
+            
+            <div class="app-icon">
+                <img src="images/Logo_2.png" alt="Math X Tales Logo">
+            </div>
+            <h1>Math X Tales</h1>
+            <p class="subtitle">End User License Agreement</p>
+        </div>
+        
+        <div class="content">
+            <p class="last-updated">Last Updated: January 2025</p>
+            
+            <!-- EULA Section -->
+            <div class="section">
+                <h2>
+                    <span class="section-icon">📜</span>
+                    End User License Agreement (EULA)
+                </h2>
+                
+                <div class="license-section">
+                    <div class="license-content">
+                        <p>
+                            <strong>PLEASE READ THIS LICENSE AGREEMENT CAREFULLY BEFORE USING MATH X TALES.</strong>
+                        </p>
+                        <p>
+                            By downloading, installing, or using Math X Tales ("the App"), you agree to be bound by the terms 
+                            and conditions of this End User License Agreement ("Agreement"). If you do not agree to the terms 
+                            of this Agreement, do not download, install, or use the App.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="license-section">
+                    <div class="license-title">1. License Grant</div>
+                    <div class="license-content">
+                        <p>
+                            Subject to your compliance with this Agreement, the developer grants you a limited, non-exclusive, 
+                            non-transferable, revocable license to download, install, and use Math X Tales for your personal, 
+                            non-commercial purposes on any iOS device that you own or control as permitted by the Apple App Store 
+                            Terms of Service.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="license-section">
+                    <div class="license-title">2. Restrictions</div>
+                    <div class="license-content">
+                        <p>You agree NOT to:</p>
+                        <ul>
+                            <li>Copy, modify, or create derivative works based on the App</li>
+                            <li>Distribute, transfer, sublicense, lease, lend, or rent the App to any third party</li>
+                            <li>Reverse engineer, decompile, or disassemble the App</li>
+                            <li>Make the functionality of the App available to multiple users through any means</li>
+                            <li>Use the App in any unlawful manner or for any illegal purpose</li>
+                            <li>Remove, alter, or obscure any proprietary notice on the App</li>
+                        </ul>
+                        <p><strong>Specific Restrictions for Shared Content:</strong></p>
+                        <ul>
+                            <li>Do NOT remove or obscure the Math X Tales logo from any exported PDFs or images</li>
+                            <li>Do NOT sell or commercially distribute stories or crossword puzzles from the App</li>
+                            <li>Do NOT claim ownership of content generated by Math X Tales</li>
+                            <li>Do NOT use exported content for training AI models or datasets</li>
+                            <li>Do NOT bulk export or automate extraction of content from the App</li>
+                            <li>Do NOT modify exported PDFs or images to remove attribution</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="license-section">
+                    <div class="license-title">3. Educational Content & Sharing Features</div>
+                    <div class="license-content">
+                        <p>
+                            Math X Tales is designed as an educational tool to help users learn mathematics through interactive 
+                            storytelling and crossword puzzles. The App allows users to:
+                        </p>
+                        <ul>
+                            <li>Play crossword games to unlock educational stories</li>
+                            <li>Share unlocked stories with friends and family in PDF format</li>
+                            <li>Share generated crossword puzzles as images</li>
+                        </ul>
+                        
+                        <div class="highlight-box">
+                            <strong>⚠️ MANDATORY LOGO REQUIREMENT:</strong><br>
+                            All content exported from Math X Tales (including PDFs and images) automatically includes 
+                            our logo and branding. This logo MUST remain visible and unaltered. Removing, obscuring, 
+                            or modifying the Math X Tales logo from any exported content is strictly prohibited and 
+                            constitutes a violation of this Agreement.
+                        </div>
+                        
+                        <p>
+                            <strong>Important Sharing Terms:</strong>
+                        </p>
+                        <ul>
+                            <li>All exported content (PDFs and images) MUST retain the Math X Tales logo and branding</li>
+                            <li>You may NOT remove, obscure, or alter the Math X Tales watermark or logo from any exported content</li>
+                            <li>Shared content is for personal, non-commercial use only</li>
+                            <li>You may share with friends and family but may NOT sell or commercially distribute the content</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="license-section">
+                    <div class="license-title">4. Intellectual Property</div>
+                    <div class="license-content">
+                        <p>
+                            The App, including without limitation all content, graphics, user interface, visual interface, 
+                            sounds, music, artwork, computer code, and all crossword puzzles and stories, is owned by the 
+                            developer and is protected by international copyright laws and other intellectual property rights.
+                        </p>
+                        <p>
+                            <strong>Content Creation & Ownership:</strong>
+                        </p>
+                        <ul>
+                            <li>All crossword puzzles are original creations and are fully owned by Math X Tales</li>
+                            <li>Stories and images, while utilizing AI assistance in creation, have been thoroughly reviewed, 
+                                curated, and arranged by the developer</li>
+                            <li>The selection, coordination, arrangement, and presentation of all content constitutes 
+                                original work protected by copyright</li>
+                            <li>The Math X Tales name, logo, and all branding elements are proprietary property</li>
+                        </ul>
+                        <p>
+                            <strong>Logo & Attribution Requirements:</strong>
+                        </p>
+                        <ul>
+                            <li>The Math X Tales logo MUST appear on all exported content</li>
+                            <li>Removing or obscuring the logo is a violation of this Agreement</li>
+                            <li>Any unauthorized use of our content without proper attribution is prohibited</li>
+                        </ul>
+                        <p>
+                            Math X Tales is written entirely in Swift and is proprietary software.
+                        </p>
+                        <p>
+                            © 2025 Math X Tales. All rights reserved.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="license-section">
+                    <div class="license-title">5. Privacy</div>
+                    <div class="license-content">
+                        <p>
+                            Your privacy is important to us. Math X Tales:
+                        </p>
+                        <ul>
+                            <li>Does not collect personal information from users</li>
+                            <li>Does not require account creation or login</li>
+                            <li>Stores progress data locally on your device only</li>
+                            <li>Does not share any data with third parties</li>
+                        </ul>
+                        <p>
+                            For complete details, please review our Privacy Policy.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="license-section">
+                    <div class="license-title">6. Disclaimer of Warranties</div>
+                    <div class="license-content">
+                        <p>
+                            THE APP IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS 
+                            OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR 
+                            PURPOSE, AND NON-INFRINGEMENT. THE DEVELOPER DOES NOT WARRANT THAT THE APP WILL BE UNINTERRUPTED, 
+                            ERROR-FREE, OR FREE OF VIRUSES OR OTHER HARMFUL COMPONENTS.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="license-section">
+                    <div class="license-title">7. Limitation of Liability</div>
+                    <div class="license-content">
+                        <p>
+                            TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL THE DEVELOPER BE LIABLE FOR 
+                            ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR ANY LOSS OF PROFITS OR 
+                            REVENUES, WHETHER INCURRED DIRECTLY OR INDIRECTLY, OR ANY LOSS OF DATA, USE, GOODWILL, OR OTHER 
+                            INTANGIBLE LOSSES RESULTING FROM YOUR USE OF THE APP.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="license-section">
+                    <div class="license-title">8. Termination</div>
+                    <div class="license-content">
+                        <p>
+                            This Agreement is effective until terminated. Your rights under this Agreement will terminate 
+                            automatically without notice if you fail to comply with any of its terms. Upon termination, 
+                            you must cease all use of the App and delete all copies from your devices.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Apple Requirements Section -->
+            <div class="section">
+                <h2>
+                    <span class="section-icon">🍎</span>
+                    Apple App Store Requirements
+                </h2>
+                
+                <div class="apple-section">
+                    <div class="license-title">Apple Standard License Agreement</div>
+                    <div class="license-content">
+                        <p>
+                            This Application is licensed under the Apple Standard End User License Agreement (EULA) 
+                            available at: <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank">
+                            https://www.apple.com/legal/internet-services/itunes/dev/stdeula/</a>
+                        </p>
+                        <p>
+                            <strong>Additional Terms for Apple Users:</strong>
+                        </p>
+                        <ul>
+                            <li>This Agreement is between you and the developer only, not with Apple Inc.</li>
+                            <li>Apple has no obligation to furnish any maintenance or support services for the App</li>
+                            <li>Apple is not responsible for any product warranties or liability claims</li>
+                            <li>Apple is not responsible for addressing any claims relating to the App</li>
+                            <li>Apple and its subsidiaries are third-party beneficiaries of this Agreement</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Google AdMob Section (if applicable) -->
+            <div class="section">
+                <h2>
+                    <span class="section-icon">📊</span>
+                    Third-Party Services
+                </h2>
+                
+                <div class="google-section">
+                    <div class="license-title">Google AdMob (If Applicable)</div>
+                    <div class="license-content">
+                        <p>
+                            <em>Note: This section applies only if advertisements are enabled in your version of the App.</em>
+                        </p>
+                        <p>
+                            Math X Tales may use Google AdMob to display advertisements. If ads are present:
+                        </p>
+                        <ul>
+                            <li>Google AdMob may collect and use data as described in Google's Privacy Policy</li>
+                            <li>Advertisements are clearly marked and separate from educational content</li>
+                            <li>We follow Google's policies for child-directed content if applicable</li>
+                            <li>You can find Google's Privacy Policy at: 
+                                <a href="https://policies.google.com/privacy" target="_blank">https://policies.google.com/privacy</a>
+                            </li>
+                        </ul>
+                        <p>
+                            The current version of Math X Tales does not display advertisements. This section is included 
+                            for transparency regarding potential future updates.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Updates Section -->
+            <div class="section">
+                <h2>
+                    <span class="section-icon">🔄</span>
+                    Updates and Changes
+                </h2>
+                
+                <div class="license-section">
+                    <div class="license-content">
+                        <p>
+                            We may update this Agreement from time to time. Updates will be made available on this page 
+                            with a revised "Last Updated" date. Your continued use of the App after any changes indicates 
+                            your acceptance of the updated terms.
+                        </p>
+                        <p>
+                            We reserve the right to modify, suspend, or discontinue the App (or any part thereof) at any 
+                            time without notice or liability to you.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Contact Section -->
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <p>
+                    If you have any questions about this License Agreement or Math X Tales,<br>
+                    please contact the developer through the App Store or visit our support page.
+                </p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p class="footer-text">
+                By using Math X Tales, you acknowledge that you have read, understood, and agree to be bound by this Agreement.<br>
+                Thank you for choosing Math X Tales for your mathematical learning journey!
+            </p>
+        </div>
+    </div>
+</body>
+</html>
